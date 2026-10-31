@@ -1,0 +1,138 @@
+{
+  "Languages": [
+    {
+      "id": "typescript",
+      "label": "TypeScript"
+    },
+    {
+      "id": "javascript",
+      "label": "JavaScript (ES6+)"
+    },
+    {
+      "id": "html",
+      "label": "HTML5"
+    },
+    {
+      "id": "css",
+      "label": "CSS3 / SCSS"
+    },
+    {
+      "id": "csharp",
+      "label": "C# / .NET (backend knowledge)"
+    },
+    {
+      "id": "english",
+      "label": "English"
+    }
+  ],
+  "Frameworks & Libraries": [
+    {
+      "id": "vue",
+      "label": "Vue.js 3"
+    },
+    {
+      "id": "angular",
+      "label": "Angular 7 / 10"
+    },
+    {
+      "id": "angularjs",
+      "label": "AngularJS"
+    },
+    {
+      "id": "tailwind",
+      "label": "Tailwind CSS"
+    },
+    {
+      "id": "rxjs",
+      "label": "RxJS / NgRx (State Management)"
+    },
+    {
+      "id": "angular-material",
+      "label": "Angular Material"
+    },
+    {
+      "id": "bootstrap",
+      "label": "Bootstrap 3"
+    },
+    {
+      "id": "nativescript",
+      "label": "NativeScript"
+    }
+  ],
+  "Tooling & Build": [
+    {
+      "id": "psm1",
+      "label": "PSM I"
+    },
+    {
+      "id": "psm2",
+      "label": "PSM II"
+    },
+    {
+      "id": "git",
+      "label": "Git"
+    },
+    {
+      "id": "jira",
+      "label": "Jira / Rally"
+    },
+    {
+      "id": "agile",
+      "label": "Agile / Scrum Methodologies"
+    },
+    {
+      "id": "waterfall",
+      "label": "Waterfall / V-model"
+    }
+  ],
+  "Testing": [
+    {
+      "id": "jasmine",
+      "label": "Jasmine (Unit Testing)"
+    },
+    {
+      "id": "karma",
+      "label": "Karma (Test Runner)"
+    }
+  ],
+  "Cloud & DevOps": [
+    {
+      "id": "aws",
+      "label": "AWS (EC2, Lambda, CloudFront, S3, CodePipeline)"
+    },
+    {
+      "id": "azure",
+      "label": "Microsoft Azure"
+    },
+    {
+      "id": "docker",
+      "label": "Docker"
+    },
+    {
+      "id": "microservices",
+      "label": "Microservices Architecture"
+    },
+    {
+      "id": "sql",
+      "label": "SQL Server / MySQL / PostgreSQL"
+    },
+    {
+      "id": "dynamodb",
+      "label": "Amazon DynamoDB"
+    }
+  ],
+  "Design & Interface": [
+    {
+      "id": "figma",
+      "label": "Figma"
+    },
+    {
+      "id": "responsive",
+      "label": "Responsive Web Design"
+    },
+    {
+      "id": "cross-browser",
+      "label": "Cross-browser Compatibility"
+    }
+  ]
+}

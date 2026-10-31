@@ -1,0 +1,33 @@
+.walker {
+  animation: walk 1s steps(1, end) infinite;
+}
+[data-motion="paused"] .walker {
+  animation: none;
+}
+@keyframes walk {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  12.5% {
+    background-position: 33.333333% 0%;
+  }
+  25% {
+    background-position: 66.666667% 0%;
+  }
+  37.5% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  62.5% {
+    background-position: 33.333333% 100%;
+  }
+  75% {
+    background-position: 66.666667% 100%;
+  }
+  87.5% {
+    background-position: 100% 100%;
+  }
+}

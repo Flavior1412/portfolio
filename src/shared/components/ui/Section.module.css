@@ -1,0 +1,27 @@
+.root {
+  @apply w-full bg-bone;
+}
+
+.default,
+.interactive {
+  @apply relative z-10;
+}
+
+.sticky {
+  position: sticky;
+  @apply top-0 flex min-h-screen items-center overflow-hidden;
+}
+
+.interactive {
+  @apply text-ink transition-colors duration-700 hover:bg-ink hover:text-bone;
+}
+
+.interactive :global(.folio-muted),
+.interactive :global(.folio-subtle) {
+  @apply transition-colors duration-700;
+}
+
+.interactive:hover {
+  --folio-muted: theme("colors.bone / 60%");
+  --folio-subtle: theme("colors.bone / 50%");
+}

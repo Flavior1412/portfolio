@@ -1,0 +1,96 @@
+{
+  "metadata": {
+    "title": "Khuong Nguyen Huu — Senior Front-end Engineer",
+    "description": "Personal portfolio of Khuong Nguyen Huu, a Senior Front-end Engineer with 8+ years of enterprise experience in Angular, Vue.js and TypeScript.",
+    "openGraphDescription": "Senior Front-end Engineer with 8+ years building enterprise applications with Angular, Vue.js and TypeScript.",
+    "siteName": "Khuong Nguyen Huu Portfolio",
+    "twitterDescription": "Senior Front-end Engineer with 8+ years of enterprise experience."
+  },
+  "accessibility": {
+    "skipNavigation": "Skip to main content",
+    "primaryNavigation": "Primary navigation",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu"
+  },
+  "navigation": {
+    "brand": { "givenName": "KHUONG", "familyName": "NGUYEN HUU", "mark": "*" },
+    "links": [
+      { "href": "#about", "label": "About" },
+      { "href": "#timeline", "label": "Timeline" },
+      { "href": "#work", "label": "Work" },
+      { "href": "#skills", "label": "Skills" },
+      { "href": "#contact", "label": "Contact" }
+    ],
+    "contact": "Get in Touch"
+  },
+  "hero": {
+    "timeline": "View Timeline",
+    "contact": "Contact Me",
+    "scrollHint": "...SCROLL TO READ",
+    "marquee": {
+      "building": "BUILDING ",
+      "enterprise": "ENTERPRISE WEB ",
+      "applications": "APPLICATIONS ",
+      "with": "WITH ",
+      "angular": "ANGULAR ",
+      "and": "AND ",
+      "vue": "VUE.JS.",
+      "separator": "/"
+    }
+  },
+  "principles": {
+    "eyebrow": "FOCUS / ARCHITECTURE · QUALITY",
+    "heading": { "opening": "BUILDING ENTERPRISE", "middle": "WEB APPLICATIONS", "closing": "WITH ANGULAR & VUE." },
+    "focus": { "opening": "REUSABLE COMPONENTS", "middle": "FRONTEND ARCHITECTURE", "closing": "TECHNICAL MENTORING" },
+    "technologies": "ANGULAR · VUE.JS · TYPESCRIPT"
+  },
+  "about": {
+    "eyebrow": "ABOUT / {name}",
+    "heading": { "opening": "SENIOR", "middle": "FRONT-END", "closing": "ENGINEER" },
+    "certifications": "PSM I & PSM II",
+    "metrics": [
+      { "value": "8+ Years", "label": "Experience" },
+      { "value": "Angular · Vue 3", "label": "Frontend" },
+      { "value": "Architecture · Quality", "label": "Focus" },
+      { "value": "PSM I · PSM II", "label": "Certifications" }
+    ],
+    "employment": "EMPLOYMENT"
+  },
+  "timeline": {
+    "eyebrow": "THE JOURNEY SO FAR",
+    "heading": "Career journey in motion",
+    "description": "From curiosity to leadership. Follow the path through each chapter.",
+    "dateRange": "2013 — Present",
+    "separator": "/",
+    "scrollHint": "Scroll to follow ↓",
+    "listLabel": "Career milestones",
+    "milestoneLabel": "{role} at {company}"
+  },
+  "work": {
+    "eyebrow": "PROJECT WORK / JUL 2017 — PRESENT",
+    "heading": { "opening": "THE WORK", "middle": "IS THE", "closing": "PORTFOLIO" },
+    "projectLabel": "{title} project",
+    "projectLinkLabel": "{title} — {company}",
+    "projectSummary": "{company} · {role} — {dateLabel}",
+    "description": "Project Description",
+    "responsibilities": "Responsibilities",
+    "technologies": "Technologies",
+    "linkArrow": "↗"
+  },
+  "skills": {
+    "eyebrow": "DESIGN TOKENS & SYSTEMS",
+    "heading": "Skills & Technologies",
+    "description": "Technologies I've worked with across 8+ years of front-end engineering and architectural delivery."
+  },
+  "contact": {
+    "heading": { "opening": "GET IN", "closing": "TOUCH." },
+    "description": "Get in touch about frontend engineering, enterprise applications or technical collaboration.",
+    "sendMessage": "Send Message",
+    "email": "Email",
+    "phone": "Phone"
+  },
+  "footer": {
+    "copyright": "© {year} {name}",
+    "backToTop": "Back to top ↑"
+  }
+}

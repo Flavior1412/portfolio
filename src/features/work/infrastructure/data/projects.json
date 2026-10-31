@@ -1,0 +1,293 @@
+[
+  {
+    "id": 2,
+    "title": "ODMS",
+    "company": "FPT Software",
+    "role": "Developer",
+    "dateLabel": "Jul 2017 – Oct 2019",
+    "description": "ODMS (Oilfield Data Management System) is a software system used in Malaysia’s oil and gas industry to manage, store and process oilfield data. It helps users access and monitor operational information, improve data accuracy and support efficient decision-making in oil and gas operations.",
+    "responsibilities": [
+      "Developed user-facing modules for operational data management and reporting.",
+      "Translated UX/UI designs into responsive web interfaces using AngularJS, HTML5 and CSS3.",
+      "Collaborated with backend engineers to integrate APIs and business processes.",
+      "Participated in application deployment and release activities across multiple environments.",
+      "Researched and proposed UI/UX improvements to enhance usability and user experience.",
+      "Maintained and enhanced existing features while resolving application defects and performance issues."
+    ],
+    "technologyGroups": [
+      {
+        "label": "Frontend",
+        "items": [
+          "AngularJS"
+        ]
+      },
+      {
+        "label": "Backend",
+        "items": [
+          ".NET Core"
+        ]
+      },
+      {
+        "label": "Databases",
+        "items": [
+          "MySQL"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Retail DDS",
+    "company": "ORIENT Software",
+    "role": "Full Stack Developer",
+    "dateLabel": "Oct 2019 – Mar 2021",
+    "description": "Toy or Game is an e-commerce platform specializing in toys and games, offering a wide range of products for children and families through an online shopping experience.",
+    "responsibilities": [
+      "Developed and maintained retail management web applications using Angular and TypeScript.",
+      "Designed and implemented responsive user interfaces optimized for desktop and tablet environments.",
+      "Developed POS desktop application features and supported deployment activities for production releases.",
+      "Built mobile POS functionalities using NativeScript to support retail operations on handheld devices.",
+      "Collaborated with backend teams to integrate APIs and business workflows.",
+      "Applied component-based architecture and reusable design principles to improve maintainability and scalability.",
+      "Participated in code reviews and technical discussions to ensure code quality and consistency.",
+      "Troubleshot and resolved application defects while supporting ongoing feature enhancements."
+    ],
+    "technologyGroups": [
+      {
+        "label": "Frontend",
+        "items": [
+          "Angular",
+          "TypeScript",
+          "CSS",
+          "Bootstrap"
+        ]
+      },
+      {
+        "label": "Backend",
+        "items": [
+          ".NET Core",
+          "Docker"
+        ]
+      },
+      {
+        "label": "Database",
+        "items": [
+          "PostgreSQL"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Buyer Red Line",
+    "company": "FPT Software",
+    "role": "Technical FE Leader",
+    "dateLabel": "Mar 2021 – Oct 2022",
+    "description": "Part of Cox Automotive’s vehicle management system, focusing on vehicle registration and delivery processes. It helps users track registration status, manage delivery schedules and monitor vehicles throughout the process, improving operational efficiency and data accuracy.",
+    "responsibilities": [
+      "Developed and maintained business-critical modules using AngularJS and Angular 10.",
+      "Participated in the migration and enhancement of legacy AngularJS components to modern Angular architecture.",
+      "Implemented responsive and cross-browser compatible user interfaces using HTML5, CSS3 and TypeScript.",
+      "Built reusable components and shared modules to improve maintainability and development efficiency.",
+      "Conducted code reviews and enforced frontend coding standards across the team.",
+      "Developed and executed unit tests using Jasmine and Karma to ensure application stability and code quality.",
+      "Collaborated with backend engineers and business analysts to deliver features within sprint timelines.",
+      "Investigated and resolved complex production issues while maintaining application performance and reliability."
+    ],
+    "technologyGroups": [
+      {
+        "label": "Frontend",
+        "items": [
+          "AngularJS",
+          "Angular 10",
+          "TypeScript",
+          "CSS3",
+          "Bootstrap"
+        ]
+      },
+      {
+        "label": "Backend",
+        "items": [
+          "Ruby on Rails"
+        ]
+      },
+      {
+        "label": "Databases",
+        "items": [
+          "PostgreSQL"
+        ]
+      },
+      {
+        "label": "Cloud Platforms",
+        "items": [
+          "Microsoft Azure"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Classpad",
+    "company": "FPT Software",
+    "role": "Team Leader / Technical FE Leader / Associate SA",
+    "dateLabel": "Oct 2022 – Jul 2024",
+    "description": "A comprehensive online learning and school management platform covering learning management, student information management, teacher administration, attendance, examinations, grading and other school-related operations.",
+    "responsibilities": [
+      "Built responsive web interfaces optimized for desktop, tablet and mobile devices.",
+      "Implemented Angular components following reusable and maintainable architecture principles.",
+      "Collaborated with designers to ensure a consistent user experience across multiple screen sizes.",
+      "Participated in requirement analysis, estimation, development, testing and deployment activities.",
+      "Participated in code reviews and provided technical support for junior developers.",
+      "Collaborated with business stakeholders to clarify requirements and ensure successful feature delivery."
+    ],
+    "technologyGroups": [
+      {
+        "label": "Frontend",
+        "items": [
+          "Angular 10",
+          "TypeScript",
+          "Bootstrap 3"
+        ]
+      },
+      {
+        "label": "Backend",
+        "items": [
+          ".NET",
+          "Node.js"
+        ]
+      },
+      {
+        "label": "Databases",
+        "items": [
+          "PostgreSQL",
+          "Amazon DynamoDB"
+        ]
+      },
+      {
+        "label": "Cloud Platforms",
+        "items": [
+          "Amazon EC2",
+          "AWS Lambda",
+          "Amazon CloudFront",
+          "Amazon CloudWatch",
+          "AWS CodePipeline",
+          "Amazon S3"
+        ]
+      },
+      {
+        "label": "System Architecture",
+        "items": [
+          "Microservices Architecture"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Costco Average Weight",
+    "company": "FPT Software",
+    "role": "Technical FE Leader",
+    "dateLabel": "Jul 2024 – Nov 2024",
+    "description": "A retail project focused on developing and maintaining an online shopping system. It helps customers browse products, manage their shopping carts and make purchases easily.",
+    "responsibilities": [
+      "Served as frontend feature owner for multiple business modules using Angular 10 and TypeScript.",
+      "Designed reusable UI components and implemented responsive layouts across multiple business modules.",
+      "Developed reusable UI components using Angular Material and Angular component architecture.",
+      "Conducted code reviews and mentored team members to ensure code quality and consistency.",
+      "Collaborated with stakeholders to analyze requirements and deliver features on schedule.",
+      "Investigated and resolved complex frontend issues related to performance, maintainability and user experience."
+    ],
+    "technologyGroups": [
+      {
+        "label": "Frontend",
+        "items": [
+          "Angular 10",
+          "TypeScript",
+          "Bootstrap 3"
+        ]
+      },
+      {
+        "label": "Backend",
+        "items": [
+          ".NET",
+          "Node.js"
+        ]
+      },
+      {
+        "label": "Database",
+        "items": [
+          "PostgreSQL"
+        ]
+      },
+      {
+        "label": "Cloud Platform",
+        "items": [
+          "AWS"
+        ]
+      },
+      {
+        "label": "System Architecture",
+        "items": [
+          "Microservices Architecture"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "NewKong2: Government Civil Management System (Japan)",
+    "company": "FPT Software",
+    "role": "Technical FE Leader of Project / SA",
+    "dateLabel": "Dec 2024 – Present",
+    "description": "Developed a Civil Registration Management System for the Japanese Government, supporting birth registrations, marriage registrations, death registrations and other civil status records.",
+    "responsibilities": [
+      "Collaborated with UI/UX designers to translate Figma designs into responsive and cross-browser compatible interfaces.",
+      "Created proposals and proofs of concept for new features.",
+      "Reviewed pull requests, provided technical guidance for frontend developers and enforced coding standards across the development team.",
+      "Coordinated frontend development activities and supported task estimation and sprint planning for the frontend team.",
+      "Worked closely with backend engineers and business analysts to deliver features within sprint schedules.",
+      "Contributed to performance optimization and frontend architecture improvements for a nationwide citizen management platform."
+    ],
+    "technologyGroups": [
+      {
+        "label": "Frontend",
+        "items": [
+          "Vue.js 3",
+          "TypeScript",
+          "Tailwind CSS"
+        ]
+      },
+      {
+        "label": "Backend",
+        "items": [
+          ".NET",
+          "Node.js"
+        ]
+      },
+      {
+        "label": "Databases",
+        "items": [
+          "PostgreSQL",
+          "Amazon DynamoDB"
+        ]
+      },
+      {
+        "label": "Cloud Platforms",
+        "items": [
+          "Amazon EC2",
+          "AWS Lambda",
+          "Amazon CloudFront",
+          "Amazon CloudWatch",
+          "AWS CodePipeline",
+          "Amazon S3"
+        ]
+      },
+      {
+        "label": "System Architecture",
+        "items": [
+          "Microservices Architecture"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+.card {
+  margin-left: 64px;
+  width: calc(100% - 64px);
+}
+
+@media (min-width: 768px) {
+  .card {
+    margin-left: 10%;
+    width: 80%;
+    max-width: 42rem;
+  }
+
+  .stop:nth-child(even) .card {
+    margin-left: auto;
+    margin-right: 10%;
+  }
+}

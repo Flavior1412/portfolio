@@ -1,0 +1,175 @@
+[
+  {
+    "id": 0,
+    "startDate": "2013-08",
+    "dateLabel": "Aug 2013 – Dec 2017",
+    "role": "Software Engineering",
+    "company": "HUTECH University",
+    "description": "Studied Software Engineering at HUTECH University in Ho Chi Minh City.",
+    "domain": "Education"
+  },
+  {
+    "id": 1,
+    "startDate": "2017-07",
+    "dateLabel": "Jul 2017 – Oct 2019",
+    "role": "Junior Front-end · ODMS",
+    "company": "FPT Software",
+    "description": "Built operational data management and reporting interfaces for Malaysia’s oil and gas industry with AngularJS, HTML5 and CSS3. Integrated APIs, supported releases and improved usability.",
+    "domain": "Oil & Gas Industry",
+    "technologies": [
+      "AngularJS",
+      "HTML5",
+      "CSS3",
+      ".NET Core",
+      "MySQL"
+    ],
+    "responsibilities": [
+      "Developed user-facing modules for operational data management and reporting.",
+      "Translated UX/UI designs into responsive web interfaces.",
+      "Collaborated with backend engineers to integrate APIs and business processes.",
+      "Participated in application deployment and release activities across multiple environments.",
+      "Researched and proposed UI/UX improvements to enhance usability.",
+      "Maintained and enhanced existing features while resolving defects and performance issues."
+    ]
+  },
+  {
+    "id": 2,
+    "startDate": "2019-10",
+    "dateLabel": "Oct 2019 – Mar 2021",
+    "role": "Full Stack Developer · Retail DDS",
+    "company": "ORIENT Software",
+    "description": "Developed retail web applications, desktop POS features and mobile POS with Angular, TypeScript and NativeScript. Owned POS module delivery and supported production releases.",
+    "domain": "Retail & E-Commerce",
+    "technologies": [
+      "Angular",
+      "TypeScript",
+      "NativeScript",
+      "CSS",
+      "Bootstrap",
+      ".NET Core",
+      "Docker",
+      "PostgreSQL"
+    ],
+    "responsibilities": [
+      "Developed and maintained retail management web applications using Angular and TypeScript.",
+      "Designed and implemented responsive user interfaces optimized for desktop and tablet environments.",
+      "Developed POS desktop application features and supported deployment activities for production releases.",
+      "Built mobile POS functionalities using NativeScript to support retail operations on handheld devices.",
+      "Applied component-based architecture and reusable design principles to improve maintainability.",
+      "Collaborated with backend teams to integrate APIs and business workflows."
+    ]
+  },
+  {
+    "id": 3,
+    "startDate": "2021-03",
+    "dateLabel": "Mar 2021 – Oct 2022",
+    "role": "Technical FE Leader · Buyer Red Line",
+    "company": "FPT Software",
+    "description": "Delivered vehicle registration and delivery modules for Cox Automotive. Migrated AngularJS components to Angular 10, reviewed code and wrote Jasmine/Karma unit tests.",
+    "domain": "Automotive Management",
+    "technologies": [
+      "AngularJS",
+      "Angular 10",
+      "TypeScript",
+      "CSS3",
+      "Bootstrap",
+      "Ruby on Rails",
+      "Jasmine",
+      "Karma",
+      "Azure"
+    ],
+    "responsibilities": [
+      "Developed and maintained business-critical modules using AngularJS and Angular 10.",
+      "Participated in the migration and enhancement of legacy AngularJS components to modern Angular architecture.",
+      "Implemented responsive and cross-browser compatible user interfaces using HTML5, CSS3 and TypeScript.",
+      "Built reusable components and shared modules to improve maintainability and development efficiency.",
+      "Developed and executed unit tests using Jasmine and Karma to ensure application stability.",
+      "Conducted code reviews and enforced frontend coding standards.",
+      "Investigated and resolved complex production issues while maintaining application performance."
+    ]
+  },
+  {
+    "id": 4,
+    "startDate": "2022-10",
+    "dateLabel": "Oct 2022 – Jul 2024",
+    "role": "Team Leader / Technical FE Leader / Associate SA · Classpad",
+    "company": "FPT Software",
+    "description": "Built an online learning and school management platform using Angular 10. Delivered reusable interfaces across desktop, tablet and mobile, supported estimation and mentored developers.",
+    "domain": "Education & EdTech",
+    "technologies": [
+      "Angular 10",
+      "TypeScript",
+      "Bootstrap 3",
+      ".NET",
+      "Node.js",
+      "PostgreSQL",
+      "DynamoDB",
+      "AWS",
+      "Microservices"
+    ],
+    "responsibilities": [
+      "Built responsive web interfaces optimized for desktop, tablet, and mobile devices.",
+      "Implemented Angular components following reusable and maintainable architecture principles.",
+      "Participated in requirement analysis, estimation, development, testing, and deployment activities.",
+      "Participated in code reviews and provided technical support and mentoring for junior developers.",
+      "Collaborated with designers to keep the experience consistent across screen sizes.",
+      "Collaborated with business stakeholders to clarify requirements and ensure successful feature delivery."
+    ]
+  },
+  {
+    "id": 5,
+    "startDate": "2024-07",
+    "dateLabel": "Jul 2024 – Nov 2024",
+    "role": "Technical FE Leader · Costco Average Weight",
+    "company": "FPT Software",
+    "description": "Owned frontend business modules for a retail shopping system with Angular 10 and TypeScript. Built reusable UI components, reviewed code and resolved performance and maintainability issues.",
+    "domain": "Enterprise Retail Shopping",
+    "technologies": [
+      "Angular 10",
+      "TypeScript",
+      "Angular Material",
+      "Bootstrap 3",
+      ".NET",
+      "Node.js",
+      "PostgreSQL",
+      "AWS"
+    ],
+    "responsibilities": [
+      "Served as frontend feature owner for multiple business modules using Angular 10 and TypeScript.",
+      "Designed reusable UI components and implemented responsive layouts across multiple business modules.",
+      "Developed reusable UI components using Angular Material and Angular component architecture.",
+      "Conducted code reviews and mentored team members to ensure code quality and consistency.",
+      "Collaborated with stakeholders to analyze requirements and deliver features on schedule.",
+      "Investigated and resolved complex frontend issues related to performance and user experience."
+    ]
+  },
+  {
+    "id": 6,
+    "startDate": "2024-12",
+    "dateLabel": "Dec 2024 – Present",
+    "role": "Technical FE Leader / SA · NewKong2",
+    "company": "FPT Software",
+    "description": "Contributed to Japan’s government civil registration management system using Vue.js 3, TypeScript and Tailwind CSS. Proposed features and POCs, reviewed pull requests and improved frontend architecture.",
+    "domain": "Government Civil Management (Japan)",
+    "technologies": [
+      "Vue.js 3",
+      "TypeScript",
+      "Tailwind CSS",
+      ".NET",
+      "Node.js",
+      "PostgreSQL",
+      "DynamoDB",
+      "AWS",
+      "Microservices"
+    ],
+    "responsibilities": [
+      "Developed a Civil Registration Management System for the Japanese Government (birth, marriage, death records).",
+      "Collaborated with UI/UX designers to translate Figma designs into responsive, cross-browser interfaces.",
+      "Created proposals and POCs for high-impact new features.",
+      "Reviewed pull requests, provided technical guidance, and enforced coding standards across the development team.",
+      "Coordinated frontend development and supported task estimation and sprint planning.",
+      "Worked with backend engineers and business analysts to deliver features within sprint schedules.",
+      "Contributed to performance optimization and frontend architecture improvements for a nationwide citizen platform."
+    ]
+  }
+]

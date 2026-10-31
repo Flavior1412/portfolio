@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.next-verify/
+out/
+build/
+coverage/
+playwright-report/
+test-results/
+next-env.d.ts
+*.tsbuildinfo

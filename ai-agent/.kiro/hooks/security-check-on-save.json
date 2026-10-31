@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Security Check on Source File Save",
+      "trigger": "PostFileSave",
+      "description": "Scans saved TypeScript source files for critical security anti-patterns",
+      "matcher": "src/.*\\.(ts|tsx)$",
+      "action": {
+        "type": "agent",
+        "prompt": "A source file was just saved. Quickly scan it for the most critical security issues only: hardcoded secrets or credentials, raw SQL string interpolation, missing input validation on API route handlers, and use of eval() or dangerouslySetInnerHTML without sanitization. If you find any issues, report them with file and line number. If the file is clean on these points, say nothing."
+      }
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+.root {
+  @apply flex flex-wrap;
+}
+
+.default {
+  @apply gap-2;
+}
+
+.compact {
+  @apply gap-1.5;
+}
+
+.tag {
+  @apply border;
+}
+
+.default .tag {
+  @apply rounded-full px-3 py-1 font-display text-[10px] uppercase tracking-[0.12em];
+  border-color: var(--folio-tag-border, theme("colors.ink / 15%"));
+  color: var(--folio-tag-text, theme("colors.ink"));
+}
+
+.compact .tag {
+  @apply rounded-md border-ink/10 bg-bone/70 px-2 py-0.5 text-[11px] text-ash;
+}

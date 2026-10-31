@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Quality Gate Reminder on Session Stop",
+      "trigger": "Stop",
+      "description": "Reminds the agent to run quality checks after completing a coding session",
+      "action": {
+        "type": "agent",
+        "prompt": "The session is ending. If any source files were modified during this session, remind the user to run the following quality gates before opening a PR: (1) npm test -- --run, (2) npm run typecheck, (3) npm run lint, (4) npm audit --audit-level=high. List the specific commands they should run. Keep the message brief."
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Session Context Reminder",
+      "trigger": "SessionStart",
+      "description": "Reminds the agent of project context and available agents at the start of each session",
+      "action": {
+        "type": "agent",
+        "prompt": "A new session has started. Remind yourself: this is the portfolio project. Read ai-agent/AGENTS.md first. ai-agent/CLAUDE.md contains project commands, engineering standards, and the Definition of Done. Specialized agents are available in ai-agent/.claude/agents/ and reusable skills in ai-agent/.claude/skills/. Before implementing anything, check ai-agent/docs/requirements/ for an approved FRD and ai-agent/docs/adr/ for architecture decisions. If none exist for the requested feature, use the feature-planning skill first."
+      }
+    }
+  ]
+}

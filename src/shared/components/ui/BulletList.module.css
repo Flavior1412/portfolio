@@ -1,0 +1,33 @@
+.default {
+  @apply space-y-3;
+}
+
+.compact {
+  @apply space-y-1.5;
+}
+
+.item {
+  @apply flex items-start;
+  color: var(--folio-muted, theme("colors.ash"));
+}
+
+.default .item {
+  @apply gap-3 text-sm leading-relaxed;
+}
+
+.compact .item {
+  @apply gap-2 text-xs leading-relaxed;
+}
+
+.marker {
+  @apply mt-2 shrink-0 rounded-full;
+}
+
+.default .marker {
+  @apply h-1.5 w-1.5;
+  background-color: var(--folio-bullet, theme("colors.ink / 40%"));
+}
+
+.compact .marker {
+  @apply h-1 w-1 bg-sky-400;
+}

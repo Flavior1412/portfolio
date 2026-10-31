@@ -1,0 +1,18 @@
+.link {
+  @apply relative block;
+}
+
+.overlay {
+  --folio-subtle: theme("colors.bone / 50%");
+  --folio-muted: theme("colors.bone / 70%");
+  --folio-bullet: theme("colors.bone / 50%");
+  --folio-tag-border: theme("colors.bone / 30%");
+  --folio-tag-text: theme("colors.bone");
+
+  @apply pointer-events-none absolute inset-0 bg-ink text-bone transition-[clip-path] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)];
+  clip-path: inset(100% 0 0 0);
+}
+
+.link:hover > .overlay {
+  clip-path: inset(0 0 0 0);
+}

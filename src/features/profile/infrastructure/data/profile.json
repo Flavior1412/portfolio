@@ -1,0 +1,42 @@
+{
+  "profile": {
+    "name": "Khuong Nguyen Huu",
+    "role": "Senior Front-end Engineer",
+    "headline": "Building enterprise web applications with Angular, Vue.js and TypeScript.",
+    "summary": "Senior Front-end Engineer with over 8 years of experience building enterprise web applications. I work across frontend architecture, reusable components, responsive and cross-browser interfaces, feature delivery, code review and technical mentoring.",
+    "location": "Ho Chi Minh City, Vietnam",
+    "email": "huukhuong0303@gmail.com",
+    "phone": "0354342144"
+  },
+  "employment": [
+    {
+      "role": "Senior Front-end Engineer",
+      "company": "FPT Software",
+      "dates": "Mar 2021 – Present"
+    },
+    {
+      "role": "Middle Front-end",
+      "company": "ORIENT Software",
+      "dates": "Oct 2019 – Mar 2021"
+    },
+    {
+      "role": "Junior Front-end",
+      "company": "FPT Software",
+      "dates": "Aug 2017 – Oct 2019"
+    }
+  ],
+  "heroCaptions": [
+    {
+      "at": 0.22,
+      "text": "ANGULAR · VUE.JS · TYPESCRIPT"
+    },
+    {
+      "at": 0.48,
+      "text": "ARCHITECTURE · QUALITY"
+    },
+    {
+      "at": 0.74,
+      "text": "8+ YEARS OF ENTERPRISE EXPERIENCE"
+    }
+  ]
+}

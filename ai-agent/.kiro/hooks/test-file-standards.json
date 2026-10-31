@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Test File Standards Check",
+      "trigger": "PostFileSave",
+      "description": "Verifies new test files follow project testing rules",
+      "matcher": ".*\\.(test|spec)\\.(ts|tsx)$",
+      "action": {
+        "type": "agent",
+        "prompt": "A test file was just created or saved. Quickly verify it follows the project testing rules from ai-agent/.claude/rules/testing-rules.md: (1) no .only or .skip without a comment, (2) no console.log statements, (3) test names follow the \"verb + expected outcome [when condition]\" pattern, (4) each test follows AAA structure. If you spot violations, report them briefly with the line number. If the file is clean, say nothing."
+      }
+    }
+  ]
+}
