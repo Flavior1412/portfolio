@@ -4,11 +4,12 @@ export type SkillCategory = string;
 export interface Skill {
   readonly id: string;
   readonly label: string;
+  readonly url?: string;
   readonly category: SkillCategory;
 }
 
 export type SkillGroups = Readonly<
-  Record<SkillCategory, readonly Pick<Skill, "id" | "label">[]>
+  Record<SkillCategory, readonly Pick<Skill, "id" | "label" | "url">[]>
 >;
 
 export interface SkillCatalog {

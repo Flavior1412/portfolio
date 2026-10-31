@@ -3,7 +3,8 @@
     "name": "Khuong Nguyen Huu",
     "role": "Senior Front-end Engineer",
     "headline": "Building enterprise web applications with Angular, Vue.js and TypeScript.",
-    "summary": "Senior Front-end Engineer with over 8 years of experience building enterprise web applications. I work across frontend architecture, reusable components, responsive and cross-browser interfaces, feature delivery, code review and technical mentoring.",
+    "shortSummary": "Senior Front-end Engineer with over 8 years of experience building enterprise web applications. I work across frontend architecture, reusable components, responsive and cross-browser interfaces, feature delivery, code review and technical mentoring.",
+    "summary": "Senior Front-end Engineer with over 8 years of experience in building enterprise web applications using Angular, Vue.js, TypeScript, JavaScript, HTML5 and CSS3.\n\nExperienced in frontend architecture, responsive web design, cross-browser compatibility, reusable component development, code review and technical mentoring within Agile environments.\n\nStrong background in leading frontend feature delivery and collaborating with cross-functional teams across government, retail, education and e-commerce domains.\n\nActively leverage AI coding tools such as Claude Code, GitHub Copilot and ChatGPT to accelerate development, testing, debugging and documentation.",
     "location": "Ho Chi Minh City, Vietnam",
     "email": "huukhuong0303@gmail.com",
     "phone": "0354342144"

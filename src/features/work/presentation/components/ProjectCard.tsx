@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 function ProjectDetails({ project, index }: ProjectCardProps) {
   return (
-    <div className="folio-container grid gap-8 py-10 lg:grid-cols-[2rem_minmax(0,1fr)_minmax(0,1.8fr)_minmax(0,0.7fr)] lg:gap-8 lg:py-14">
+    <div className="folio-container grid gap-8 py-10 lg:grid-cols-[2rem_minmax(0,1fr)_minmax(0,1.8fr)_minmax(0,0.7fr)] lg:py-14">
       <span className="folio-subtle font-display text-xs tracking-[0.25em]">
         {String(index + 1).padStart(2, "0")}
       </span>
@@ -35,7 +35,7 @@ function ProjectDetails({ project, index }: ProjectCardProps) {
         </p>
       </div>
       <div className="min-w-0">
-        <h4 className="folio-label folio-subtle mb-3">
+        <h4 className="folio-label folio-subtle mb-4">
           {content.work.description}
         </h4>
         <p className="folio-muted text-sm leading-relaxed">
@@ -50,7 +50,7 @@ function ProjectDetails({ project, index }: ProjectCardProps) {
         <h4 className="folio-label folio-subtle mb-4">
           {content.work.technologies}
         </h4>
-        <div className="space-y-5">
+        <div className="space-y-6">
           {project.technologyGroups.map((group) => (
             <div key={group.label}>
               <h5 className="folio-subtle font-display text-[10px] uppercase tracking-[0.15em]">

@@ -20,7 +20,7 @@ export function MilestoneCard({
       })}
       className={`group relative scroll-mt-28 rounded-2xl border bg-white/70 p-5 shadow-sm transition-colors duration-300 hover:shadow-lg sm:p-6 ${active ? "border-sky-300/80 shadow-sky-500/5" : "border-ink/10 hover:border-ink/20"}`}
     >
-      <div className="mb-1.5 flex flex-wrap items-center justify-between gap-2">
+      <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
         <time
           className="text-xs font-semibold uppercase tracking-wider text-sky-700"
           dateTime={milestone.startDate || undefined}
@@ -36,7 +36,7 @@ export function MilestoneCard({
       <h3 className="font-display text-lg font-bold tracking-tight text-ink transition-colors group-hover:text-sky-700">
         {milestone.role}
       </h3>
-      <p className="mb-3 mt-0.5 text-xs font-medium text-ash">
+      <p className="mb-4 mt-1 text-xs font-medium text-ash">
         {milestone.company}
       </p>
       <p className="text-sm leading-relaxed text-ash">
@@ -46,14 +46,14 @@ export function MilestoneCard({
         <BulletList
           items={milestone.responsibilities}
           variant="compact"
-          className="mt-3.5 border-t border-ink/5 pt-3"
+          className="mt-4 border-t border-ink/5 pt-4"
         />
       )}
       {milestone.technologies && (
         <TagList
           items={milestone.technologies}
           variant="compact"
-          className="mt-4 pt-1"
+          className="mt-4"
         />
       )}
     </article>

@@ -140,11 +140,21 @@ test.describe("Reference portfolio presentation", () => {
     page,
   }) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
-    await page.goto("/");
+    await page.goto("/#timeline");
+    // Wait for initial anchor restoration before sampling manual scroll progress.
+    await expect
+      .poll(() =>
+        page
+          .locator("#timeline")
+          .evaluate((element) =>
+            Math.abs(element.getBoundingClientRect().top - 90),
+          ),
+      )
+      .toBeLessThan(5);
     const route = page.getByTestId("timeline-route");
     const journey = page.getByTestId("character-journey");
     const xs: number[] = [];
-    for (const progress of [0.1, 0.25, 0.5, 0.75, 0.9, 0.35]) {
+    for (const progress of [0.1, 0.25, 0.5, 0.75, 0.9, 0.5]) {
       await route.evaluate((element, fraction) => {
         const top = element.getBoundingClientRect().top + scrollY;
         window.scrollTo({
@@ -164,7 +174,8 @@ test.describe("Reference portfolio presentation", () => {
       );
     }
     expect(Math.max(...xs) - Math.min(...xs)).toBeGreaterThan(500);
-    const sprite = page.getByTestId("journey-sprite");
+    const sprite = page.getByTestId("journey-senior-sprite");
+    await expect(sprite).toHaveCSS("opacity", "1");
     await expect(sprite).toHaveAttribute("data-frame-count", "8");
     const frames = new Set<string>();
     await expect
@@ -193,6 +204,260 @@ test.describe("Reference portfolio presentation", () => {
         .evaluate((element) => getComputedStyle(element).fontFamily),
     ).toContain("Inter");
     await expect(page.getByText("Small steps. Real progress.")).toHaveCount(0);
+  });
+
+  test("crossfades through Student, Junior, Middle and Senior in both scroll directions", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto("/#timeline");
+    await expect
+      .poll(() =>
+        page
+          .locator("#timeline")
+          .evaluate((element) =>
+            Math.abs(element.getBoundingClientRect().top - 90),
+          ),
+      )
+      .toBeLessThan(5);
+
+    const traveler = page.getByTestId("timeline-traveler");
+    const student = page.getByTestId("journey-sprite");
+    const junior = page.getByTestId("journey-junior-sprite");
+    const middle = page.getByTestId("journey-middle-sprite");
+    const senior = page.getByTestId("journey-senior-sprite");
+    await expect(traveler).toHaveAttribute("data-stage", "student");
+    await expect(student).toHaveCSS("opacity", "1");
+    await expect(junior).toHaveCSS("opacity", "0");
+    await expect(middle).toHaveCSS("opacity", "0");
+    await expect(senior).toHaveCSS("opacity", "0");
+
+    const reachMilestone = async (id: number, direction = 1) => {
+      await expect
+        .poll(
+          async () => {
+            const current = await page
+              .locator(`#milestone-${id}`)
+              .evaluate((element) =>
+                element.closest("li")?.getAttribute("aria-current"),
+              );
+            if (current !== "step") {
+              await page.evaluate(
+                (direction) =>
+                  window.scrollBy({ top: 48 * direction, behavior: "instant" }),
+                direction,
+              );
+            }
+            return current;
+          },
+          { timeout: 8000, intervals: [32] },
+        )
+        .toBe("step");
+    };
+    await reachMilestone(1);
+    await expect(traveler).toHaveAttribute("data-stage", "junior");
+    await expect
+      .poll(
+        () =>
+          junior.evaluate((element) => {
+            const opacity = Number(getComputedStyle(element).opacity);
+            return opacity > 0 && opacity < 1;
+          }),
+        { intervals: [16] },
+      )
+      .toBe(true);
+    await expect(junior).toHaveCSS("opacity", "1");
+    await expect(student).toHaveCSS("opacity", "0");
+
+    await reachMilestone(2);
+    await expect(traveler).toHaveAttribute("data-stage", "middle");
+    await expect
+      .poll(
+        () =>
+          middle.evaluate((element) => {
+            const opacity = Number(getComputedStyle(element).opacity);
+            return opacity > 0 && opacity < 1;
+          }),
+        { intervals: [16] },
+      )
+      .toBe(true);
+    await expect(middle).toHaveCSS("opacity", "1");
+    await expect(junior).toHaveCSS("opacity", "0");
+
+    await reachMilestone(3);
+    await expect(traveler).toHaveAttribute("data-stage", "senior");
+    await expect
+      .poll(
+        () =>
+          senior.evaluate((element) => {
+            const opacity = Number(getComputedStyle(element).opacity);
+            return opacity > 0 && opacity < 1;
+          }),
+        { intervals: [16] },
+      )
+      .toBe(true);
+    await expect(senior).toHaveCSS("opacity", "1");
+    await expect(middle).toHaveCSS("opacity", "0");
+
+    await reachMilestone(2, -1);
+    await expect(traveler).toHaveAttribute("data-stage", "middle");
+    await expect(middle).toHaveCSS("opacity", "1");
+    await expect(senior).toHaveCSS("opacity", "0");
+
+    await reachMilestone(1, -1);
+    await expect(traveler).toHaveAttribute("data-stage", "junior");
+    await expect(junior).toHaveCSS("opacity", "1");
+    await expect(middle).toHaveCSS("opacity", "0");
+
+    await page.getByTestId("timeline-route").evaluate((element) =>
+      window.scrollTo({
+        top: element.getBoundingClientRect().top + scrollY - 90,
+        behavior: "instant",
+      }),
+    );
+    await expect(traveler).toHaveAttribute("data-stage", "student");
+    await expect(student).toHaveCSS("opacity", "1");
+    await expect(junior).toHaveCSS("opacity", "0");
+  });
+
+  for (const reducedMotion of [false, true]) {
+    test(`turns the character when wheel direction reverses (${reducedMotion ? "mobile reduced motion" : "desktop smooth scrolling"})`, async ({
+      page,
+    }) => {
+      await page.emulateMedia({
+        reducedMotion: reducedMotion ? "reduce" : "no-preference",
+      });
+      const viewport = reducedMotion
+        ? { width: 390, height: 844 }
+        : { width: 1440, height: 1000 };
+      await page.setViewportSize(viewport);
+      await page.goto("/#milestone-3");
+      await expect
+        .poll(() =>
+          page
+            .locator("#milestone-3")
+            .evaluate((element) =>
+              Math.abs(element.getBoundingClientRect().top - 90),
+            ),
+        )
+        .toBeLessThan(5);
+      const start = await page.evaluate(() => scrollY);
+      await page.mouse.move(viewport.width - 24, viewport.height / 2);
+      await page.mouse.wheel(0, 200);
+      await expect
+        .poll(() => page.evaluate(() => scrollY))
+        .toBeGreaterThan(start + 160);
+      const journey = page.getByTestId("character-journey");
+      const traveler = page.getByTestId("timeline-traveler");
+      const character = page.getByTestId("journey-senior-sprite").locator("..");
+      await expect(traveler).toHaveAttribute("data-stage", "senior");
+      await expect(journey).toHaveAttribute("data-direction", "forward");
+      const forwardFacing = await traveler.getAttribute("data-facing");
+
+      if (reducedMotion) {
+        const beforeSmallReverse = await page.evaluate(() => scrollY);
+        await page.mouse.wheel(0, -40);
+        await expect
+          .poll(() => page.evaluate(() => scrollY))
+          .toBeLessThan(beforeSmallReverse - 30);
+        await expect(journey).toHaveAttribute("data-direction", "forward");
+        await expect(traveler).toHaveAttribute("data-facing", forwardFacing!);
+      }
+
+      await page.mouse.wheel(0, -100);
+      await expect(journey).toHaveAttribute("data-direction", "backward");
+      const reverseFacing = forwardFacing === "right" ? "left" : "right";
+      await expect(traveler).toHaveAttribute("data-stage", "senior");
+      await expect(
+        page.locator("#timeline [aria-current='step'] #milestone-3"),
+      ).toHaveCount(1);
+      await expect(traveler).toHaveAttribute("data-facing", reverseFacing);
+      await expect(character).toHaveCSS(
+        "transform",
+        reverseFacing === "left"
+          ? "matrix(-1, 0, 0, 1, 0, 0)"
+          : "matrix(1, 0, 0, 1, 0, 0)",
+      );
+      await expect(character).toHaveCSS(
+        "transition-duration",
+        reducedMotion ? "0s" : "0.18s",
+      );
+
+      await page.mouse.wheel(0, 100);
+      await expect(journey).toHaveAttribute("data-direction", "forward");
+      await expect(traveler).toHaveAttribute("data-facing", forwardFacing!);
+    });
+  }
+
+  test("keeps the student visible if the career images cannot load", async ({
+    page,
+  }) => {
+    for (const stage of ["junior", "middle", "senior"]) {
+      await page.route(`**/images/journey/${stage}-walk-cycle.webp`, (route) =>
+        route.abort(),
+      );
+    }
+    await page.goto("/#work");
+    await expect(page.getByTestId("character-journey")).toHaveAttribute(
+      "data-progress",
+      "1.000",
+    );
+    await expect(page.getByTestId("timeline-traveler")).toHaveAttribute(
+      "data-stage",
+      "student",
+    );
+    await expect(page.getByTestId("journey-sprite")).toHaveCSS("opacity", "1");
+  });
+
+  test("keeps Junior visible if later images cannot load", async ({ page }) => {
+    await page.route("**/images/journey/middle-walk-cycle.webp", (route) =>
+      route.abort(),
+    );
+    await page.route("**/images/journey/senior-walk-cycle.webp", (route) =>
+      route.abort(),
+    );
+    await page.goto("/#work");
+    await expect(page.getByTestId("character-journey")).toHaveAttribute(
+      "data-progress",
+      "1.000",
+    );
+    await expect(page.getByTestId("timeline-traveler")).toHaveAttribute(
+      "data-stage",
+      "junior",
+    );
+    await expect(page.getByTestId("journey-junior-sprite")).toHaveCSS(
+      "opacity",
+      "1",
+    );
+    await expect(page.getByTestId("journey-middle-sprite")).toHaveCSS(
+      "opacity",
+      "0",
+    );
+  });
+
+  test("keeps Middle visible if the Senior image cannot load", async ({
+    page,
+  }) => {
+    await page.route("**/images/journey/senior-walk-cycle.webp", (route) =>
+      route.abort(),
+    );
+    await page.goto("/#work");
+    await expect(page.getByTestId("character-journey")).toHaveAttribute(
+      "data-progress",
+      "1.000",
+    );
+    await expect(page.getByTestId("timeline-traveler")).toHaveAttribute(
+      "data-stage",
+      "middle",
+    );
+    await expect(page.getByTestId("journey-middle-sprite")).toHaveCSS(
+      "opacity",
+      "1",
+    );
+    await expect(page.getByTestId("journey-senior-sprite")).toHaveCSS(
+      "opacity",
+      "0",
+    );
   });
 
   test("keeps navigation readable on light sections and links work rows to the original career details", async ({
@@ -257,11 +522,22 @@ test.describe("Reference portfolio presentation", () => {
           )
           .toBe(true);
       }
+      const lastEmployment = page.locator("#about ol li").last();
+      await lastEmployment.scrollIntoViewIfNeeded();
+      await expect(lastEmployment).toBeInViewport({ ratio: 1 });
     }
     for (const card of await page.locator("#timeline article").all()) {
       await card.scrollIntoViewIfNeeded();
       await expect(card).toHaveCSS("opacity", "1");
       await expect(card.getByRole("heading")).toBeVisible();
     }
+    const senior = page.getByTestId("journey-senior-sprite");
+    await expect(page.getByTestId("timeline-traveler")).toHaveAttribute(
+      "data-stage",
+      "senior",
+    );
+    await expect(senior).toHaveCSS("opacity", "1");
+    await expect(senior).toHaveCSS("animation-name", "none");
+    await expect(senior).toHaveCSS("transition-duration", "0s");
   });
 });

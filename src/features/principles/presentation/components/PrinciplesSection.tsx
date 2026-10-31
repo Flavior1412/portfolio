@@ -7,7 +7,7 @@ import content from "@/shared/data/content.json";
 export function PrinciplesSection() {
   return (
     <Section id="principles" variant="sticky">
-      <div className="folio-container flex min-h-screen flex-col justify-center gap-16 py-24">
+      <div className="folio-container folio-section-space flex min-h-screen flex-col justify-center gap-16">
         <Reveal className="md:max-w-[55%]">
           <p className="folio-label text-ash">{content.principles.eyebrow}</p>
           <h2 className="mt-6 font-display text-[9vw] font-light leading-[1.25] md:text-[3.4vw]">

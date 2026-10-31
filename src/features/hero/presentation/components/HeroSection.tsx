@@ -11,7 +11,7 @@ import content from "@/shared/data/content.json";
 gsap.registerPlugin(ScrollTrigger);
 
 interface HeroSectionProps {
-  profile: { headline: string; summary: string; location: string };
+  profile: { headline: string; shortSummary: string; location: string };
   heroCaptions: readonly { at: number; text: string }[];
 }
 
@@ -80,15 +80,15 @@ export function HeroSection({ profile, heroCaptions }: HeroSectionProps) {
       />
       <div
         ref={introRef}
-        className="absolute left-6 top-[24%] z-20 max-w-[19rem] md:left-[6%] md:top-[52%] md:max-w-sm"
+        className="folio-inset-left absolute top-[24%] z-20 w-[calc(100%-3rem)] max-w-[19rem] md:top-[52%] md:max-w-sm"
       >
-        <p className="font-display text-sm leading-relaxed text-ash md:text-base">
-          {profile.summary}
+        <p className="folio-copy font-display text-ash">
+          {profile.shortSummary}
         </p>
         <p className="mt-4 font-display text-xs uppercase tracking-[0.2em] text-ink">
           {profile.location}
         </p>
-        <div className="mt-5 flex gap-6 font-display text-[10px] uppercase tracking-[0.15em]">
+        <div className="mt-6 flex gap-6 font-display text-[10px] uppercase tracking-[0.15em]">
           <a
             href="#timeline"
             className="underline underline-offset-4 transition-opacity hover:opacity-50"
@@ -106,11 +106,11 @@ export function HeroSection({ profile, heroCaptions }: HeroSectionProps) {
       <a
         href="#principles"
         ref={hintRef}
-        className="absolute bottom-10 left-6 z-20 font-display text-xs tracking-[0.3em] text-ink md:left-[6%]"
+        className="folio-inset-left absolute bottom-10 z-20 font-display text-xs tracking-[0.3em] text-ink"
       >
         {content.hero.scrollHint}
       </a>
-      <div className="pointer-events-none absolute left-6 top-[68%] z-[5] w-[30%] max-w-sm text-center md:left-[6%] md:top-[52%]">
+      <div className="folio-inset-left pointer-events-none absolute top-[68%] z-[5] w-[30%] max-w-sm text-center md:top-[52%]">
         {heroCaptions.map((caption, index) => (
           <p
             key={caption.text}

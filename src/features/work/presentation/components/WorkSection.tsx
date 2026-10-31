@@ -15,7 +15,7 @@ export function WorkSection({
 }) {
   return (
     <Section id="work" aria-labelledby="work-title">
-      <div className="folio-container relative flex min-h-screen flex-col justify-center py-28">
+      <div className="folio-container folio-section-space relative flex min-h-screen flex-col justify-center">
         <WireCanvas
           draw={drawEarthMoonOrbit}
           sizeRatio={0.24}

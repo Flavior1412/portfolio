@@ -2,6 +2,7 @@ export interface Profile {
   readonly name: string;
   readonly role: string;
   readonly headline: string;
+  readonly shortSummary: string;
   readonly summary: string;
   readonly location: string;
   readonly email: string;

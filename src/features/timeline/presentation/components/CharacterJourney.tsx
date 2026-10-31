@@ -11,24 +11,105 @@ import {
 interface CharacterJourneyProps {
   progress: number;
   reducedMotion: boolean;
+  juniorStartIndex: number;
+  middleStartIndex: number;
+  seniorStartIndex: number;
   containerRef: RefObject<HTMLDivElement | null>;
   onActiveChange: (index: number) => void;
 }
+
+const characterSprites = [
+  {
+    stage: "student",
+    src: "/images/journey/student-walk-cycle.webp",
+    testId: "journey-sprite",
+  },
+  {
+    stage: "junior",
+    src: "/images/journey/junior-walk-cycle.webp",
+    testId: "journey-junior-sprite",
+  },
+  {
+    stage: "middle",
+    src: "/images/journey/middle-walk-cycle.webp",
+    testId: "journey-middle-sprite",
+  },
+  {
+    stage: "senior",
+    src: "/images/journey/senior-walk-cycle.webp",
+    testId: "journey-senior-sprite",
+  },
+] as const;
+
+type CharacterStage = (typeof characterSprites)[number]["stage"];
+const turnDistance = 80;
 
 /** The character walks on the same full-page route that connects the actual cards. */
 export function CharacterJourney({
   progress,
   reducedMotion,
+  juniorStartIndex,
+  middleStartIndex,
+  seniorStartIndex,
   containerRef,
   onActiveChange,
 }: CharacterJourneyProps) {
   const id = useId().replace(/:/g, "");
+  const [travelDirection, setTravelDirection] = useState<1 | -1>(1);
+  const [loadedSprites, setLoadedSprites] = useState<
+    Partial<Record<CharacterStage, boolean>>
+  >({});
   const [layout, setLayout] = useState<{
     width: number;
     height: number;
     mobile: boolean;
     route: JourneyRoute;
   } | null>(null);
+
+  useEffect(() => {
+    let previousScrollY = window.scrollY;
+    let currentDirection: 1 | -1 = 1;
+    let reverseDistance = 0;
+    const updateDirection = () => {
+      const delta = window.scrollY - previousScrollY;
+      previousScrollY = window.scrollY;
+      if (Math.abs(delta) < 1) return;
+
+      const nextDirection = delta < 0 ? -1 : 1;
+      if (nextDirection === currentDirection) {
+        reverseDistance = 0;
+        return;
+      }
+
+      reverseDistance += Math.abs(delta);
+      if (reverseDistance >= turnDistance) {
+        currentDirection = nextDirection;
+        reverseDistance = 0;
+        setTravelDirection(nextDirection);
+      }
+    };
+    window.addEventListener("scroll", updateDirection, { passive: true });
+    return () => window.removeEventListener("scroll", updateDirection);
+  }, []);
+
+  useEffect(() => {
+    // Keep an earlier character visible until its replacement can be painted,
+    // including when opening a direct link to a later milestone.
+    const images = characterSprites
+      .filter((sprite) => sprite.stage !== "student")
+      .map((sprite) => {
+        const image = new Image();
+        image.onload = () =>
+          setLoadedSprites((loaded) => ({ ...loaded, [sprite.stage]: true }));
+        image.src = sprite.src;
+        return image;
+      });
+    return () => {
+      images.forEach((image) => {
+        image.onload = null;
+      });
+    };
+  }, []);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -90,6 +171,21 @@ export function CharacterJourney({
     ? locateJourneyTraveler(layout.route, progress)
     : null;
   const activeIndex = position?.activeIndex ?? 0;
+  const facing =
+    (layout?.mobile || activeIndex % 2 === 0 ? 1 : -1) * travelDirection;
+  const stageStarts: Record<CharacterStage, number> = {
+    student: 0,
+    junior: juniorStartIndex,
+    middle: middleStartIndex,
+    senior: seniorStartIndex,
+  };
+  const currentStage =
+    characterSprites.findLast(
+      ({ stage }) =>
+        stageStarts[stage] >= 0 &&
+        activeIndex >= stageStarts[stage] &&
+        (stage === "student" || loadedSprites[stage]),
+    )?.stage ?? "student";
   useEffect(() => onActiveChange(activeIndex), [activeIndex, onActiveChange]);
 
   const normalized = Math.max(0, Math.min(1, progress));
@@ -98,6 +194,7 @@ export function CharacterJourney({
       data-testid="character-journey"
       data-progress={normalized.toFixed(3)}
       data-motion={reducedMotion ? "paused" : "playing"}
+      data-direction={travelDirection === 1 ? "forward" : "backward"}
       className="pointer-events-none absolute inset-0"
       aria-hidden="true"
     >
@@ -175,9 +272,8 @@ export function CharacterJourney({
           </svg>
           <div
             data-testid="timeline-traveler"
-            data-facing={
-              layout.mobile || activeIndex % 2 === 0 ? "right" : "left"
-            }
+            data-stage={currentStage}
+            data-facing={facing === 1 ? "right" : "left"}
             className="absolute z-20 w-[84px] drop-shadow-md min-[768px]:w-28"
             style={{
               left: position.x,
@@ -185,23 +281,21 @@ export function CharacterJourney({
               transform: "translate(-50%, -84%)",
             }}
           >
-            <div
-              style={{
-                transform: `scaleX(${layout.mobile || activeIndex % 2 === 0 ? 1 : -1})`,
-              }}
-            >
-              <div
-                data-testid="journey-sprite"
-                data-frame-count="8"
-                className={`${styles.walker} aspect-square w-full bg-no-repeat`}
-                style={{
-                  backgroundImage:
-                    "url('/images/journey/student-walk-cycle.webp')",
-                  backgroundSize: "400% 200%",
-                  backgroundPosition: "0% 0%",
-                  animationDuration: `${1 - normalized * 0.35}s`,
-                }}
-              />
+            <div className={styles.character}>
+              {characterSprites.map((sprite) => (
+                <div
+                  key={sprite.stage}
+                  data-testid={sprite.testId}
+                  data-frame-count="8"
+                  className={`${styles.walker} ${styles.sprite} ${currentStage === sprite.stage ? styles.visible : ""}`}
+                  style={{
+                    backgroundImage: `url('${sprite.src}')`,
+                    backgroundSize: "400% 200%",
+                    backgroundPosition: "0% 0%",
+                    animationDuration: `${1 - normalized * 0.35}s`,
+                  }}
+                />
+              ))}
             </div>
           </div>
         </>

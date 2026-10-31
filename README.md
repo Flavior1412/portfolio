@@ -7,7 +7,7 @@ career content is based on the supplied CV (2026-10-15); see
 
 ## Run locally
 
-Requires Node.js 20.19+ and npm. From the repository root:
+Requires Node.js 20.19+ and npm.
 
 ```sh
 npm install
@@ -17,21 +17,14 @@ npm run dev
 Open http://localhost:3000. For production, run `npm run build` then
 `npm run start`. No API credentials are required.
 
-## Content and configuration
+## Content
 
-- Site-wide copy and SEO text: `src/shared/data/content.json`.
-- Profile, employment and hero captions: `src/features/profile/infrastructure/data/profile.json`.
-- Timeline, projects and skills: the corresponding feature's
-  `infrastructure/data/*.json` file. Preserve supplied facts and IDs; do not
-  invent dates, achievements or social links. JSON order controls displayed order.
-- Contact links use the supplied email and phone; Send Message opens the visitor's
-  email client. There is no contact backend.
+- Site copy and contact links: `src/shared/data/content.json`
+- Profile and employment: `src/features/profile/infrastructure/data/profile.json`
+- Timeline, projects and skills: each feature's `infrastructure/data/*.json`
+- Resume: `public/resume/Khuong CV_281026.pdf`
 
-Set optional `SITE_URL` in a private `.env.local` for the production canonical
-origin. No production domain is configured. Local-only `.env.example`,
-`public/robots.txt` and `public/sitemap.xml` are absent from a fresh clone.
-Metadata references `/og-image.png`, which also needs to be supplied before
-sharing production preview cards.
+Contact actions are Zalo, LinkedIn and Resume. There is no contact backend.
 
 ## Structure
 
@@ -92,16 +85,5 @@ npx playwright install chromium
 npm run e2e
 ```
 
-Use `npm run test:coverage` for coverage. Browser checks can target a built server
-with `PLAYWRIGHT_PRODUCTION=1 npm run e2e`; set `PLAYWRIGHT_CHANNEL=chrome` to use
-an installed Chrome. The optional `/robots.txt` and `/sitemap.xml` checks need the
-local-only files listed above. A fresh clone also needs local `.eslintrc.json` to
-run lint:
-
-```json
-{ "extends": ["next/core-web-vitals", "next/typescript"] }
-```
-
-The lockfile, `.nvmrc`, ESLint config, environment templates, SEO files and CI
-configuration are intentionally local-only in this checkout. `.gitignore` keeps
-dependencies, generated output and local secrets out of version control.
+See [architecture notes](ai-agent/docs/architecture.md) and
+[UI notes](ai-agent/docs/reference-ui.md) for more detail.

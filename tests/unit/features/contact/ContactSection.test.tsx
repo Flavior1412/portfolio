@@ -16,22 +16,22 @@ describe("ContactSection", () => {
       "href",
       `tel:${profile.phone}`,
     );
-    expect(screen.getByRole("link", { name: "Email" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
       "href",
-      `mailto:${profile.email}`,
+      "https://www.linkedin.com/in/h%E1%BB%AFu-kh%C6%B0%C6%A1ng-kira-2a6431191/",
     );
-    expect(screen.getByRole("link", { name: "Phone" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Resume" })).toHaveAttribute(
       "href",
-      `tel:${profile.phone}`,
+      "/resume/Khuong%20CV_281026.pdf",
     );
   });
 
-  it("opens an email message instead of linking to the removed contact form", () => {
+  it("links the contact actions to Zalo, LinkedIn and the resume", () => {
     const { container } = render(<ContactSection profile={profile} />);
 
-    expect(screen.getByRole("link", { name: "Send Message" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Zalo" })).toHaveAttribute(
       "href",
-      `mailto:${profile.email}`,
+      "https://zalo.me/0354342144",
     );
     expect(container.querySelector("form")).not.toBeInTheDocument();
     expect(

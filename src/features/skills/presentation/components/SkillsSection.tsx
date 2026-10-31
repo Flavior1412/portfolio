@@ -7,16 +7,16 @@ import content from "@/shared/data/content.json";
 
 export function SkillsSection({ skillCategories, skills }: SkillCatalog) {
   return (
-    <Section id="skills" variant="interactive" className="py-20 md:py-28">
-      <div className="folio-container">
+    <Section id="skills" variant="interactive">
+      <div className="folio-container folio-section-space">
         <Reveal className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="folio-label folio-subtle">{content.skills.eyebrow}</p>
-            <h2 className="mt-5 font-display text-3xl font-light md:text-4xl">
+            <h2 className="mt-6 font-display text-3xl font-light md:text-4xl">
               {content.skills.heading}
             </h2>
           </div>
-          <p className="folio-muted max-w-md text-sm leading-relaxed">
+          <p className="folio-copy folio-muted max-w-md">
             {content.skills.description}
           </p>
         </Reveal>
@@ -27,7 +27,7 @@ export function SkillsSection({ skillCategories, skills }: SkillCatalog) {
           {skillCategories.map((category) => (
             <div key={category}>
               <h3 className="folio-label folio-subtle">{category}</h3>
-              <ul className="mt-5 space-y-2.5">
+              <ul className="mt-4 space-y-3">
                 {skills
                   .filter((skill) => skill.category === category)
                   .map((skill) => (
@@ -35,7 +35,19 @@ export function SkillsSection({ skillCategories, skills }: SkillCatalog) {
                       key={skill.id}
                       className="font-display text-lg font-light leading-snug md:text-xl"
                     >
-                      {skill.label}
+                      {skill.url ? (
+                        <a
+                          href={skill.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline underline-offset-4 hover:opacity-70 focus-visible:outline focus-visible:outline-offset-4"
+                        >
+                          {skill.label}
+                          <span aria-hidden="true"> ↗</span>
+                        </a>
+                      ) : (
+                        skill.label
+                      )}
                     </li>
                   ))}
               </ul>

@@ -25,9 +25,9 @@ export function TimelineSection({
     <Section
       id="timeline"
       aria-labelledby="timeline-title"
-      className="overflow-x-clip px-4 py-24 sm:px-6 lg:py-32"
+      className="overflow-x-clip"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="folio-container folio-section-space">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
             <p className="folio-label text-ash">{content.timeline.eyebrow}</p>
@@ -37,11 +37,11 @@ export function TimelineSection({
             >
               {content.timeline.heading}
             </h2>
-            <p className="mt-3 text-base text-ash">
+            <p className="folio-copy mt-4 text-ash">
               {content.timeline.description}
             </p>
           </div>
-          <p className="pb-1 font-display text-xs text-ash">
+          <p className="font-display text-xs text-ash">
             {content.timeline.dateRange}{" "}
             <span className="mx-2 text-ink/20">
               {content.timeline.separator}
@@ -53,11 +53,20 @@ export function TimelineSection({
         <div
           ref={trailRef}
           data-testid="timeline-route"
-          className="relative pb-20 pt-40"
+          className="relative mx-auto max-w-6xl pb-20 pt-40"
         >
           <CharacterJourney
             progress={progress}
             reducedMotion={reducedMotion}
+            juniorStartIndex={milestones.findIndex(
+              (milestone) => milestone.id === 1,
+            )}
+            middleStartIndex={milestones.findIndex(
+              (milestone) => milestone.id === 2,
+            )}
+            seniorStartIndex={milestones.findIndex(
+              (milestone) => milestone.id === 3,
+            )}
             containerRef={trailRef}
             onActiveChange={setActiveIndex}
           />

@@ -19,10 +19,17 @@
 
 @layer base {
   :root {
+    --folio-max-width: 1400px;
+    --folio-gutter: 1.5rem;
     --font-display:
       "Space Grotesk", "Gilroy", ui-sans-serif, system-ui, sans-serif;
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
     scroll-behavior: auto;
+  }
+  @media (min-width: 768px) {
+    :root {
+      --folio-gutter: 2.5rem;
+    }
   }
   * {
     box-sizing: border-box;
@@ -68,7 +75,21 @@
     @apply font-display text-[10px] uppercase tracking-[0.25em];
   }
   .folio-container {
-    @apply mx-auto w-full max-w-[1400px] px-6 md:px-10;
+    @apply mx-auto w-full;
+    max-width: var(--folio-max-width);
+    padding-inline: var(--folio-gutter);
+  }
+  .folio-inset-left {
+    left: max(
+      var(--folio-gutter),
+      calc((100% - var(--folio-max-width)) / 2 + var(--folio-gutter))
+    );
+  }
+  .folio-section-space {
+    @apply py-24 md:py-28;
+  }
+  .folio-copy {
+    @apply text-sm leading-relaxed md:text-base md:leading-relaxed;
   }
   .folio-muted {
     color: var(--folio-muted, theme("colors.ash"));

@@ -130,7 +130,7 @@ export function Navbar({ name, email }: { name: string; email: string }) {
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${onDark ? "text-bone" : "text-ink"} ${scrolled && !onDark ? "bg-bone/70 backdrop-blur-md" : ""}`}
     >
       <nav
-        className="flex items-center justify-between gap-4 px-6 py-5 md:px-10"
+        className="folio-container flex items-center justify-between gap-4 py-5"
         aria-label={content.accessibility.primaryNavigation}
       >
         <a
@@ -187,12 +187,14 @@ export function Navbar({ name, email }: { name: string; email: string }) {
         <div
           ref={menuRef}
           id="mobile-menu"
-          className={`absolute inset-x-0 top-full border-t p-6 lg:hidden ${onDark ? "border-bone/10 bg-ink" : "border-ink/10 bg-bone"}`}
+          className={`absolute inset-x-0 top-full border-t lg:hidden ${onDark ? "border-bone/10 bg-ink" : "border-ink/10 bg-bone"}`}
         >
-          <NavigationLinks
-            onNavigate={scrollToSection}
-            className="space-y-5 font-display text-sm uppercase tracking-[0.2em]"
-          />
+          <div className="folio-container py-6">
+            <NavigationLinks
+              onNavigate={scrollToSection}
+              className="space-y-6 font-display text-sm uppercase tracking-[0.2em]"
+            />
+          </div>
         </div>
       )}
     </header>

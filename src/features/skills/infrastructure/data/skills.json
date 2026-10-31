@@ -1,5 +1,5 @@
 {
-  "Languages": [
+  "Languages & Core Technologies": [
     {
       "id": "typescript",
       "label": "TypeScript"
@@ -18,21 +18,21 @@
     },
     {
       "id": "csharp",
-      "label": "C# / .NET (backend knowledge)"
+      "label": "C# / .NET Core"
     },
     {
-      "id": "english",
-      "label": "English"
+      "id": "nodejs",
+      "label": "Node.js"
     }
   ],
   "Frameworks & Libraries": [
     {
-      "id": "vue",
-      "label": "Vue.js 3"
-    },
-    {
       "id": "angular",
       "label": "Angular 7 / 10"
+    },
+    {
+      "id": "vue",
+      "label": "Vue.js 3"
     },
     {
       "id": "angularjs",
@@ -41,10 +41,6 @@
     {
       "id": "tailwind",
       "label": "Tailwind CSS"
-    },
-    {
-      "id": "rxjs",
-      "label": "RxJS / NgRx (State Management)"
     },
     {
       "id": "angular-material",
@@ -57,60 +53,54 @@
     {
       "id": "nativescript",
       "label": "NativeScript"
+    },
+    {
+      "id": "rxjs",
+      "label": "RxJS / NgRx"
     }
   ],
-  "Tooling & Build": [
-    {
-      "id": "psm1",
-      "label": "PSM I"
-    },
-    {
-      "id": "psm2",
-      "label": "PSM II"
-    },
+  "Tools & Testing": [
     {
       "id": "git",
       "label": "Git"
     },
     {
-      "id": "jira",
-      "label": "Jira / Rally"
+      "id": "figma",
+      "label": "Figma"
     },
     {
-      "id": "agile",
-      "label": "Agile / Scrum Methodologies"
+      "id": "vscode",
+      "label": "VS Code"
     },
     {
-      "id": "waterfall",
-      "label": "Waterfall / V-model"
-    }
-  ],
-  "Testing": [
+      "id": "postman",
+      "label": "Postman"
+    },
+    {
+      "id": "jest",
+      "label": "Jest"
+    },
     {
       "id": "jasmine",
-      "label": "Jasmine (Unit Testing)"
+      "label": "Jasmine"
     },
     {
       "id": "karma",
-      "label": "Karma (Test Runner)"
+      "label": "Karma"
     }
   ],
-  "Cloud & DevOps": [
+  "Cloud, DevOps & Databases": [
     {
       "id": "aws",
-      "label": "AWS (EC2, Lambda, CloudFront, S3, CodePipeline)"
+      "label": "AWS"
     },
     {
       "id": "azure",
-      "label": "Microsoft Azure"
+      "label": "Azure DevOps"
     },
     {
       "id": "docker",
       "label": "Docker"
-    },
-    {
-      "id": "microservices",
-      "label": "Microservices Architecture"
     },
     {
       "id": "sql",
@@ -121,10 +111,10 @@
       "label": "Amazon DynamoDB"
     }
   ],
-  "Design & Interface": [
+  "Architecture & Best Practices": [
     {
-      "id": "figma",
-      "label": "Figma"
+      "id": "microservices",
+      "label": "Microservices Architecture"
     },
     {
       "id": "responsive",
@@ -133,6 +123,38 @@
     {
       "id": "cross-browser",
       "label": "Cross-browser Compatibility"
+    }
+  ],
+  "Methodologies": [
+    {
+      "id": "jira",
+      "label": "Jira / Rally"
+    },
+    {
+      "id": "agile",
+      "label": "Agile / Scrum"
+    },
+    {
+      "id": "waterfall",
+      "label": "Waterfall / V-Model"
+    }
+  ],
+  "Certifications": [
+    {
+      "id": "psm1",
+      "label": "Professional Scrum Master",
+      "url": "https://www.scrum.org/user/885100"
+    },
+    {
+      "id": "awsCA",
+      "label": "AWS Cloud Architect",
+      "url": "https://www.udacity.com/certificate/7Y5V9LQA"
+    }
+  ],
+  "Languages": [
+    {
+      "id": "english",
+      "label": "English"
     }
   ]
 }
