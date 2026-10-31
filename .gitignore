@@ -27,11 +27,9 @@ Thumbs.db
 **/.claude/settings.local.json
 
 # Local-only files (intentionally excluded from the repository)
-/.github/
 /.vscode/
 /public/robots.txt
 /public/sitemap.xml
 /.env.example
 /.eslintrc.json
 /.nvmrc
-/package-lock.json
