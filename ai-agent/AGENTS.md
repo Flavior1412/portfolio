@@ -16,7 +16,8 @@ user requests take precedence over historical notes.
 - Contact action copy and URLs live in `src/shared/data/content.json`:
   Zalo, LinkedIn and Resume. The resume file is
   `public/resume/Khuong CV_281026.pdf`.
-- No backend or production domain is configured. Keep `.env*` private.
+- There is no backend. The production URL is `https://khuongnh-portfolio.vercel.app`;
+  `src/app/robots.txt` and `src/app/sitemap.xml` reference it. Keep `.env*` private.
 
 ## Architecture
 

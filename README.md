@@ -85,6 +85,11 @@ npx playwright install chromium
 npm run e2e
 ```
 
+`src/app/robots.txt` and `src/app/sitemap.xml` configure search engine crawling
+and the production homepage. Set `SITE_URL` to the production origin in the
+deployment environment for canonical metadata. If the domain changes, update
+both files, `SITE_URL`, and the URL expectations in `tests/e2e/smoke.spec.ts`.
+
 See [architecture notes](ai-agent/docs/architecture.md) and
 [UI notes](ai-agent/docs/reference-ui.md) for more detail.
 

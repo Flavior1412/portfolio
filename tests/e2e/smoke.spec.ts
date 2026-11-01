@@ -127,14 +127,27 @@ test.describe("Smoke — page load", () => {
     ).toBeInViewport();
   });
 
-  test("serves sitemap.xml at the root URL", async ({ page }) => {
-    const response = await page.goto("/sitemap.xml");
-    expect(response?.status()).toBe(200);
+  test("serves a sitemap containing the production homepage", async ({
+    request,
+  }) => {
+    const response = await request.get("/sitemap.xml");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("xml");
+    expect(await response.text()).toContain(
+      "<loc>https://khuongnh-portfolio.vercel.app/</loc>",
+    );
   });
 
-  test("serves robots.txt at the root URL", async ({ page }) => {
-    const response = await page.goto("/robots.txt");
-    expect(response?.status()).toBe(200);
+  test("serves robots.txt with the production sitemap", async ({ request }) => {
+    const response = await request.get("/robots.txt");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("text/plain");
+    const robots = await response.text();
+    expect(robots).toContain("User-agent: *");
+    expect(robots).toContain("Allow: /");
+    expect(robots).toContain(
+      "Sitemap: https://khuongnh-portfolio.vercel.app/sitemap.xml",
+    );
   });
 });
 
