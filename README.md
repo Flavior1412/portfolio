@@ -87,3 +87,7 @@ npm run e2e
 
 See [architecture notes](ai-agent/docs/architecture.md) and
 [UI notes](ai-agent/docs/reference-ui.md) for more detail.
+
+
+## Portfolio:
+open: https://khuongnh-portfolio.vercel.app
