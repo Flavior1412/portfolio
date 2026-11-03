@@ -42,13 +42,6 @@ export function MilestoneCard({
       <p className="text-sm leading-relaxed text-ash">
         {milestone.description}
       </p>
-      {milestone.responsibilities && (
-        <BulletList
-          items={milestone.responsibilities}
-          variant="compact"
-          className="mt-4 border-t border-ink/5 pt-4"
-        />
-      )}
       {milestone.technologies && (
         <TagList
           items={milestone.technologies}
