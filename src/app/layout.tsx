@@ -1,19 +1,36 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import content from "@/shared/data/content.json";
+import { SITE_URL } from "./_composition/site";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.SITE_URL || "http://localhost:3000"),
+  metadataBase: new URL(SITE_URL),
   title: content.metadata.title,
   description: content.metadata.description,
+  keywords: content.metadata.keywords,
+  applicationName: content.metadata.siteName,
+  authors: [{ name: "Khuong Nguyen Huu" }],
+  creator: "Khuong Nguyen Huu",
+  publisher: "Khuong Nguyen Huu",
+  category: "technology",
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
+  other: {
+    "ai-context": "/llms.txt",
+  },
   openGraph: {
     title: content.metadata.title,
     description: content.metadata.openGraphDescription,
-    ...(process.env.SITE_URL ? { url: process.env.SITE_URL } : {}),
+    url: "/",
     siteName: content.metadata.siteName,
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: content.metadata.title,
@@ -26,15 +43,20 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: content.metadata.title,
     description: content.metadata.twitterDescription,
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
-  ...(process.env.SITE_URL
-    ? { alternates: { canonical: process.env.SITE_URL } }
-    : {}),
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({

@@ -17,7 +17,7 @@ user requests take precedence over historical notes.
   Zalo, LinkedIn and Resume. The resume file is
   `public/resume/Khuong CV_281026.pdf`.
 - There is no backend. The production URL is `https://khuongnh-portfolio.vercel.app`;
-  `src/app/robots.txt` and `src/app/sitemap.xml` reference it. Keep `.env*` private.
+  `src/app/robots.ts` and `src/app/sitemap.ts` reference it. Keep `.env*` private.
 
 ## Architecture
 

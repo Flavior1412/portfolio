@@ -6,6 +6,7 @@ import { SkillsSection } from "@/features/skills";
 import { ContactSection } from "@/features/contact";
 import { AboutSection } from "@/features/about";
 import { PrinciplesSection } from "@/features/principles";
+import { StructuredData } from "@/features/seo";
 import { WorkSection } from "@/features/work";
 import { ScrollExperience } from "@/shared/components/motion/ScrollExperience";
 
@@ -13,6 +14,7 @@ import { getPortfolio } from "./_composition/portfolio";
 
 /** Single-page career portfolio. */
 export default function Home() {
+  const portfolio = getPortfolio();
   const {
     profile,
     employment,
@@ -21,9 +23,12 @@ export default function Home() {
     projects,
     skills,
     skillCategories,
-  } = getPortfolio();
+    structuredData,
+  } = portfolio;
+
   return (
     <>
+      <StructuredData data={structuredData} />
       <ScrollExperience />
       <Navbar name={profile.name} email={profile.email} />
       <main id="main-content" className="relative">

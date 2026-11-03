@@ -36,6 +36,7 @@ src/
 │   ├── timeline/                Career milestones and journey UI
 │   ├── work/                    Project records and project UI
 │   ├── skills/                  Skill catalog and section UI
+│   ├── seo/                     Structured data and AI-readable SEO output
 │   └── hero/, about/, principles/, contact/  UI sections
 └── shared/
     ├── components/              Layout, UI and motion components
@@ -85,10 +86,11 @@ npx playwright install chromium
 npm run e2e
 ```
 
-`src/app/robots.txt` and `src/app/sitemap.xml` configure search engine crawling
-and the production homepage. Set `SITE_URL` to the production origin in the
-deployment environment for canonical metadata. If the domain changes, update
-both files, `SITE_URL`, and the URL expectations in `tests/e2e/smoke.spec.ts`.
+`src/app/robots.ts` and `src/app/sitemap.ts` configure search engine crawling
+and the production homepage. `src/app/_composition/site.tsx` is the single
+source for canonical URLs; set `SITE_URL` to the production origin in the
+deployment environment if the domain changes. Also update `public/llms.txt`
+and the URL expectations in `tests/e2e/smoke.spec.ts`.
 
 See [architecture notes](ai-agent/docs/architecture.md) and
 [UI notes](ai-agent/docs/reference-ui.md) for more detail.

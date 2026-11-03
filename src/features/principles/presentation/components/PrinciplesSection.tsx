@@ -6,24 +6,27 @@ import content from "@/shared/data/content.json";
 
 export function PrinciplesSection() {
   return (
-    <Section id="principles" variant="sticky">
+    <Section id="principles" aria-labelledby="principles-title" variant="sticky">
       <div className="folio-container folio-section-space flex min-h-screen flex-col justify-center gap-16">
         <Reveal className="md:max-w-[55%]">
           <p className="folio-label text-ash">{content.principles.eyebrow}</p>
-          <h2 className="mt-6 font-display text-[9vw] font-light leading-[1.25] md:text-[3.4vw]">
+          <h2
+            id="principles-title"
+            className="mt-6 font-display text-[9vw] font-light leading-[1.25] md:text-[3.4vw]"
+          >
             <span className="block">{content.principles.heading.opening}</span>
             <span className="block">{content.principles.heading.middle}</span>
             <span className="block">{content.principles.heading.closing}</span>
           </h2>
         </Reveal>
         <Reveal className="self-end text-right md:max-w-[55%]" delay={0.1}>
-          <h2 className="font-display text-[9vw] font-light leading-[1.25] md:text-[3.4vw]">
+          <h3 className="font-display text-[9vw] font-light leading-[1.25] md:text-[3.4vw]">
             <span className="block">{content.principles.focus.opening}</span>
             <span className="outline-type block font-medium">
               {content.principles.focus.middle}
             </span>
             <span className="block">{content.principles.focus.closing}</span>
-          </h2>
+          </h3>
           <p className="folio-label mt-6 text-ash">
             {content.principles.technologies}
           </p>

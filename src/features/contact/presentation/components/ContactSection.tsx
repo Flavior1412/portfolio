@@ -8,9 +8,12 @@ export function ContactSection({
   profile: { email: string; phone: string };
 }) {
   return (
-    <Section id="contact" variant="interactive">
+    <Section id="contact" aria-labelledby="contact-title" variant="interactive">
       <div className="folio-container folio-section-space flex min-h-screen flex-col justify-center">
-        <h2 className="font-display text-[13vw] font-light leading-[1.05] md:text-[6vw]">
+        <h2
+          id="contact-title"
+          className="font-display text-[13vw] font-light leading-[1.05] md:text-[6vw]"
+        >
           <span className="block">{content.contact.heading.opening}</span>
           <span className="block font-bold">
             {content.contact.heading.closing}

@@ -12,7 +12,7 @@ interface AboutSectionProps {
 
 export function AboutSection({ profile, employment }: AboutSectionProps) {
   return (
-    <Section id="about">
+    <Section id="about" aria-labelledby="about-title">
       <div className="folio-container folio-section-space flex min-h-screen flex-col justify-center gap-14">
         <div className="grid gap-10 md:grid-cols-2 md:items-center md:gap-12">
           <Reveal>
@@ -21,7 +21,10 @@ export function AboutSection({ profile, employment }: AboutSectionProps) {
                 name: profile.name.toUpperCase(),
               })}
             </p>
-            <h2 className="mt-6 font-display text-[11vw] font-light leading-[1.1] md:text-[4.2vw]">
+            <h2
+              id="about-title"
+              className="mt-6 font-display text-[11vw] font-light leading-[1.1] md:text-[4.2vw]"
+            >
               <span className="block">{content.about.heading.opening}</span>
               <span className="block font-bold">
                 {content.about.heading.middle}

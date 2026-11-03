@@ -1,0 +1,30 @@
+# Khuong Nguyen Huu — Senior Front-end Engineer
+
+> Official portfolio and professional profile for Khuong Nguyen Huu, a Senior Front-end Engineer based in Ho Chi Minh City, Vietnam.
+
+## Summary
+
+Khuong Nguyen Huu is a Senior Front-end Engineer with over 8 years of experience building enterprise web applications. His work focuses on frontend architecture, reusable components, responsive and cross-browser interfaces, feature delivery, code review and technical mentoring. Primary technologies include Angular, Vue.js and TypeScript.
+
+## Portfolio sections
+
+- [About](https://khuongnh-portfolio.vercel.app/#about): professional summary, experience metrics and employment history.
+- [Career timeline](https://khuongnh-portfolio.vercel.app/#timeline): education and frontend engineering milestones from HUTECH University through FPT Software and ORIENT Software.
+- [Selected work](https://khuongnh-portfolio.vercel.app/#work): ODMS, Retail DDS, Buyer Red Line, Classpad, Costco Average Weight and NewKong2.
+- [Skills](https://khuongnh-portfolio.vercel.app/#skills): languages, frontend frameworks, testing, cloud, databases and architecture practices.
+- [Contact](https://khuongnh-portfolio.vercel.app/#contact): direct email, LinkedIn, Zalo and downloadable resume.
+
+## Professional focus
+
+- Angular and AngularJS application development
+- Vue.js 3 and TypeScript application development
+- Frontend architecture and reusable component systems
+- Responsive, cross-browser enterprise interfaces
+- Code review, mentoring and technical frontend leadership
+
+## Primary sources
+
+- [Portfolio homepage](https://khuongnh-portfolio.vercel.app/)
+- [Source repository](https://github.com/Flavior1412/portfolio)
+- [Resume PDF](https://khuongnh-portfolio.vercel.app/resume/Khuong%20CV_281026.pdf)
+- [LinkedIn](https://www.linkedin.com/in/h%E1%BB%AFu-kh%C6%B0%C6%A1ng-kira-2a6431191/)

@@ -6,6 +6,7 @@ import ts from "typescript";
 import { describe, expect, it } from "vitest";
 
 const sourceRoot = resolve(process.cwd(), "src");
+const nextMetadataRouteModules = new Set(["app/robots.ts", "app/sitemap.ts"]);
 
 function filesWithin(directory: string): string[] {
   return readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -115,7 +116,8 @@ describe("application architecture", () => {
         .map((path) => relative(sourceRoot, path))
         .filter(
           (path) =>
-            /\.(?:[cm]?[jt]s|jsx)$/.test(path) ||
+            (!nextMetadataRouteModules.has(path) &&
+              /\.(?:[cm]?[jt]s|jsx)$/.test(path)) ||
             (path.startsWith("features/") &&
               path.endsWith(".json") &&
               !/^features\/[^/]+\/infrastructure\/data\//.test(path)),

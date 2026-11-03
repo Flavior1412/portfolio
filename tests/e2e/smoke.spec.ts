@@ -12,11 +12,42 @@ test.describe("Smoke — page load", () => {
     });
 
     await page.goto("/");
-    await expect(page.locator("h1")).toHaveText(profile.headline);
+    await expect(page.locator("h1")).toHaveText(
+      `${profile.name} — ${profile.role}`,
+    );
     await expect(
       page.getByRole("link", { name: "Khuong Nguyen Huu", exact: true }),
     ).toBeVisible();
     expect(errors).toHaveLength(0);
+  });
+
+  test("renders crawlable SEO metadata and profile structured data", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page).toHaveTitle(
+      "Khuong Nguyen Huu | Senior Front-end Engineer",
+    );
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+      "content",
+      /Khuong Nguyen Huu.*Angular.*Vue\.js.*TypeScript/,
+    );
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+      "href",
+      "https://khuongnh-portfolio.vercel.app",
+    );
+
+    const structuredData = JSON.parse(
+      (await page.locator('script[type="application/ld+json"]').textContent()) ||
+        "{}",
+    );
+    expect(structuredData["@context"]).toBe("https://schema.org");
+    expect(structuredData["@graph"]).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ "@type": "ProfilePage" }),
+        expect.objectContaining({ "@type": "Person", name: profile.name }),
+      ]),
+    );
   });
 
   test("renders the section anchors in the navbar", async ({ page }) => {
@@ -143,7 +174,7 @@ test.describe("Smoke — page load", () => {
     expect(response.status()).toBe(200);
     expect(response.headers()["content-type"]).toContain("text/plain");
     const robots = await response.text();
-    expect(robots).toContain("User-agent: *");
+    expect(robots).toContain("User-Agent: *");
     expect(robots).toContain("Allow: /");
     expect(robots).toContain(
       "Sitemap: https://khuongnh-portfolio.vercel.app/sitemap.xml",

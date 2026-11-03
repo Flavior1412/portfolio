@@ -11,7 +11,12 @@ import content from "@/shared/data/content.json";
 gsap.registerPlugin(ScrollTrigger);
 
 interface HeroSectionProps {
-  profile: { headline: string; shortSummary: string; location: string };
+  profile: {
+    name: string;
+    role: string;
+    shortSummary: string;
+    location: string;
+  };
   heroCaptions: readonly { at: number; text: string }[];
 }
 
@@ -66,10 +71,13 @@ export function HeroSection({ profile, heroCaptions }: HeroSectionProps) {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-title"
       ref={sectionRef}
       className="relative isolate h-screen w-full overflow-hidden bg-bone"
     >
-      <h1 className="sr-only">{profile.headline}</h1>
+      <h1 id="hero-title" className="sr-only">
+        {profile.name} — {profile.role}
+      </h1>
       <div className="absolute inset-x-0 top-[13%] z-0 md:top-[9%]">
         <HeroMarquee />
       </div>

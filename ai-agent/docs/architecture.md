@@ -82,8 +82,9 @@ when a future requirement actually introduces asynchronous storage.
 - Use kebab-case for other files and directories, such as
   `get-projects.tsx`, `json-project-repository.tsx` and `earth-moon-orbit.tsx`.
   Keep framework and entrypoint names `page.tsx`, `layout.tsx`, `index.tsx` and
-  `server.tsx`; Next.js's private `_composition` directory is an intentional
-  exception.
+  `server.tsx`; Next metadata route entrypoints `app/robots.ts` and
+  `app/sitemap.ts` are framework-required `.ts` exceptions. Next.js's private
+  `_composition` directory is an intentional exception.
 - Use camelCase for variables, functions and repository instances, such as
   `getProjects`, `jsonProjectRepository` and `drawEarthMoonOrbit`. Use
   UPPER_SNAKE_CASE for fixed module constants, such as `HERO_IMAGE`.

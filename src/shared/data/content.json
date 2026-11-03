@@ -1,10 +1,22 @@
 {
   "metadata": {
-    "title": "Khuong Nguyen Huu — Senior Front-end Engineer",
-    "description": "Personal portfolio of Khuong Nguyen Huu, a Senior Front-end Engineer with 8+ years of enterprise experience in Angular, Vue.js and TypeScript.",
-    "openGraphDescription": "Senior Front-end Engineer with 8+ years building enterprise applications with Angular, Vue.js and TypeScript.",
+    "title": "Khuong Nguyen Huu | Senior Front-end Engineer",
+    "description": "Portfolio of Khuong Nguyen Huu, a Senior Front-end Engineer in Ho Chi Minh City specializing in Angular, Vue.js, TypeScript, frontend architecture and enterprise web applications.",
+    "openGraphDescription": "Senior Front-end Engineer in Ho Chi Minh City specializing in Angular, Vue.js, TypeScript and enterprise frontend architecture.",
     "siteName": "Khuong Nguyen Huu Portfolio",
-    "twitterDescription": "Senior Front-end Engineer with 8+ years of enterprise experience."
+    "twitterDescription": "Senior Front-end Engineer specializing in Angular, Vue.js, TypeScript and enterprise frontend architecture.",
+    "projectsName": "Selected frontend engineering projects",
+    "lastUpdated": "2026-11-03",
+    "keywords": [
+      "Khuong Nguyen Huu",
+      "Senior Front-end Engineer",
+      "Frontend Engineer Ho Chi Minh City",
+      "Angular developer",
+      "Vue.js developer",
+      "TypeScript developer",
+      "frontend architecture",
+      "enterprise web applications"
+    ]
   },
   "accessibility": {
     "skipNavigation": "Skip to main content",

@@ -7,12 +7,12 @@ import content from "@/shared/data/content.json";
 
 export function SkillsSection({ skillCategories, skills }: SkillCatalog) {
   return (
-    <Section id="skills" variant="interactive">
+    <Section id="skills" aria-labelledby="skills-title" variant="interactive">
       <div className="folio-container folio-section-space">
         <Reveal className="mb-14 flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="folio-label folio-subtle">{content.skills.eyebrow}</p>
-            <h2 className="mt-6 font-display text-3xl font-light md:text-4xl">
+            <h2 id="skills-title" className="mt-6 font-display text-3xl font-light md:text-4xl">
               {content.skills.heading}
             </h2>
           </div>
