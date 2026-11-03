@@ -86,11 +86,18 @@ npx playwright install chromium
 npm run e2e
 ```
 
-`src/app/robots.ts` and `src/app/sitemap.ts` configure search engine crawling
-and the production homepage. `src/app/_composition/site.tsx` is the single
-source for canonical URLs; set `SITE_URL` to the production origin in the
-deployment environment if the domain changes. Also update `public/llms.txt`
-and the URL expectations in `tests/e2e/smoke.spec.ts`.
+`public/robots.txt` allows crawling and points to `public/sitemap.xml`, which
+lists the canonical production homepage. Both files are versioned in Git and
+served at `/robots.txt` and `/sitemap.xml`. The site is a single page, so section
+anchors are not separate sitemap entries. Update `<lastmod>` only when the
+homepage content changes, keeping it consistent with `metadata.lastUpdated`
+in `src/shared/data/content.json`.
+
+`src/app/_composition/site.tsx` configures canonical metadata. If the domain
+changes, set `SITE_URL` to the production origin and also update the static URLs
+in `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt` and the expectations
+in `tests/e2e/smoke.spec.ts`. Do not add duplicate App Router metadata routes for
+these public files.
 
 See [architecture notes](ai-agent/docs/architecture.md) and
 [UI notes](ai-agent/docs/reference-ui.md) for more detail.

@@ -12,7 +12,9 @@ interface ProjectCardProps {
 
 function ProjectDetails({ project, index }: ProjectCardProps) {
   return (
-    <div className="folio-container grid gap-8 py-10 lg:grid-cols-[2rem_minmax(0,1fr)_minmax(0,1.8fr)_minmax(0,0.7fr)] lg:py-14">
+    <div
+      className={`${styles.details} folio-container grid gap-8 py-10 lg:grid-cols-[2rem_minmax(0,1fr)_minmax(0,1.8fr)_minmax(0,0.7fr)] lg:py-14`}
+    >
       <span className="folio-subtle font-display text-xs tracking-[0.25em]">
         {String(index + 1).padStart(2, "0")}
       </span>
@@ -84,9 +86,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         })}
       >
         <ProjectDetails project={project} index={index} />
-        <div aria-hidden="true" className={styles.overlay}>
-          <ProjectDetails project={project} index={index} />
-        </div>
       </a>
     </article>
   );

@@ -28,8 +28,6 @@ Thumbs.db
 
 # Local-only files (intentionally excluded from the repository)
 /.vscode/
-/public/robots.txt
-/public/sitemap.xml
 /.env.example
 /.eslintrc.json
 /.nvmrc

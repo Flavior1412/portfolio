@@ -478,10 +478,14 @@ test.describe("Reference portfolio presentation", () => {
     const workLink = page.locator("#work a").first();
     await workLink.scrollIntoViewIfNeeded();
     await workLink.hover();
-    const overlay = workLink.locator(":scope > div[aria-hidden='true']");
+    await expect(
+      workLink.locator(":scope > div[aria-hidden='true']"),
+    ).toHaveCount(0);
     await expect
       .poll(() =>
-        overlay.evaluate((element) => getComputedStyle(element).clipPath),
+        workLink.evaluate((element) =>
+          getComputedStyle(element, "::before").clipPath,
+        ),
       )
       .toBe("inset(0px)");
     await workLink.click();

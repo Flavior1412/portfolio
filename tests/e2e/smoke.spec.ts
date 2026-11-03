@@ -50,6 +50,18 @@ test.describe("Smoke — page load", () => {
     );
   });
 
+  test("keeps animated and project copy single in the crawlable DOM", async ({
+    page,
+  }) => {
+    await page.goto("/");
+
+    await expect(page.getByTestId("hero-marquee-copy")).toHaveCount(1);
+    await expect(page.locator("#work article")).toHaveCount(6);
+    for (const project of await page.locator("#work article").all()) {
+      await expect(project.locator("p.folio-muted")).toHaveCount(1);
+    }
+  });
+
   test("renders the section anchors in the navbar", async ({ page }) => {
     await page.goto("/");
     await expect(
@@ -178,6 +190,15 @@ test.describe("Smoke — page load", () => {
     expect(robots).toContain("Allow: /");
     expect(robots).toContain(
       "Sitemap: https://khuongnh-portfolio.vercel.app/sitemap.xml",
+    );
+  });
+
+  test("serves the AI-readable llms.txt profile context", async ({ request }) => {
+    const response = await request.get("/llms.txt");
+    expect(response.status()).toBe(200);
+    expect(response.headers()["content-type"]).toContain("text/plain");
+    expect(await response.text()).toContain(
+      "Khuong Nguyen Huu — Senior Front-end Engineer",
     );
   });
 });
